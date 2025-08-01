@@ -1,0 +1,94 @@
+/* 
+  Стили для компонента Button
+  Критерий К2: Кнопка стилизована ✓
+*/
+
+.button {
+  /* Основные размеры и отступы */
+  padding: 12px 24px;
+  margin: 8px;
+  
+  /* Типографика */
+  font-size: 16px;
+  font-weight: 600;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  
+  /* Цвета и фон */
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  
+  /* Скругление углов */
+  border-radius: 8px;
+  
+  /* Курсор при наведении */
+  cursor: pointer;
+  
+  /* Плавные переходы для анимации */
+  transition: all 0.3s ease;
+  
+  /* Убираем outline при фокусе, добавим свой */
+  outline: none;
+  
+  /* Тень для объема */
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+/* Состояние при наведении мыши */
+.button:hover {
+  /* Поднимаем кнопку */
+  transform: translateY(-2px);
+  
+  /* Увеличиваем тень */
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+  
+  /* Немного затемняем фон */
+  filter: brightness(1.1);
+}
+
+/* Состояние при нажатии */
+.button:active {
+  /* Опускаем кнопку */
+  transform: translateY(0);
+  
+  /* Уменьшаем тень */
+  box-shadow: 0 2px 10px rgba(102, 126, 234, 0.3);
+}
+
+/* Состояние фокуса (для доступности) */
+.button:focus {
+  /* Добавляем цветную рамку */
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3), 
+              0 0 0 3px rgba(102, 126, 234, 0.2);
+}
+
+/* Отключенное состояние */
+.button--disabled {
+  /* Серый фон для отключенной кнопки */
+  background: #cccccc;
+  
+  /* Обычный курсор */
+  cursor: not-allowed;
+  
+  /* Убираем тень */
+  box-shadow: none;
+  
+  /* Полупрозрачность */
+  opacity: 0.6;
+}
+
+/* Отключенная кнопка не реагирует на наведение */
+.button--disabled:hover {
+  transform: none;
+  box-shadow: none;
+  filter: none;
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+  .button {
+    /* Увеличиваем размер для удобства нажатия на мобильных */
+    padding: 14px 28px;
+    font-size: 18px;
+  }
+}

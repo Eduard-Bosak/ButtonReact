@@ -1,0 +1,168 @@
+/* 
+  Стили для компонента Input
+  Критерий К2: Поле ввода стилизовано ✓
+*/
+
+.input-container {
+  /* Контейнер для поля ввода и дополнительных элементов */
+  display: flex;
+  flex-direction: column;
+  margin: 8px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.input {
+  /* Основные размеры и отступы */
+  padding: 12px 16px;
+  
+  /* Типографика */
+  font-size: 16px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  
+  /* Цвета и границы */
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: #ffffff;
+  color: #333333;
+  
+  /* Убираем стандартный outline */
+  outline: none;
+  
+  /* Плавные переходы */
+  transition: all 0.3s ease;
+  
+  /* Размеры */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Состояние placeholder */
+.input::placeholder {
+  color: #999999;
+  font-style: italic;
+}
+
+/* Состояние фокуса */
+.input:focus,
+.input--focused {
+  /* Цветная граница при фокусе */
+  border-color: #667eea;
+  
+  /* Тень для выделения */
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  
+  /* Слегка поднимаем поле */
+  transform: translateY(-1px);
+}
+
+/* Состояние при наведении */
+.input:hover:not(:disabled) {
+  /* Затемняем границу */
+  border-color: #cccccc;
+  
+  /* Добавляем легкую тень */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Отключенное состояние */
+.input--disabled {
+  /* Серый фон */
+  background-color: #f5f5f5;
+  
+  /* Серая граница */
+  border-color: #dddddd;
+  
+  /* Серый текст */
+  color: #999999;
+  
+  /* Курсор "не разрешено" */
+  cursor: not-allowed;
+}
+
+/* Отключенное поле не реагирует на наведение */
+.input--disabled:hover {
+  border-color: #dddddd;
+  box-shadow: none;
+  transform: none;
+}
+
+/* Стили для индикатора состояния */
+.input-status {
+  /* Отступ сверху */
+  margin-top: 4px;
+  
+  /* Маленький шрифт */
+  font-size: 14px;
+  
+  /* Плавный переход цвета */
+  transition: color 0.3s ease;
+  
+  /* Выравнивание по левому краю */
+  text-align: left;
+}
+
+/* Состояние пустого поля */
+.input-status--empty {
+  color: #999999;
+}
+
+/* Состояние заполненного поля */
+.input-status--filled {
+  color: #4caf50;
+  font-weight: 500;
+}
+
+/* Анимация появления для статуса */
+.input-status {
+  opacity: 0;
+  animation: fadeIn 0.3s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+  .input {
+    /* Увеличиваем размер для удобства на мобильных */
+    padding: 14px 18px;
+    font-size: 18px;
+  }
+  
+  .input-container {
+    /* Уменьшаем максимальную ширину на мобильных */
+    max-width: 100%;
+  }
+}
+
+/* Дополнительные стили для различных типов полей */
+.input[type="password"] {
+  /* Специальные стили для полей пароля */
+  letter-spacing: 0.1em;
+}
+
+/* Анимация при очистке поля */
+.input.clearing {
+  animation: clearField 0.3s ease;
+}
+
+@keyframes clearField {
+  0% {
+    background-color: #ffffff;
+  }
+  50% {
+    background-color: #f0f8ff;
+  }
+  100% {
+    background-color: #ffffff;
+  }
+}

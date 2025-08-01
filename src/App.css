@@ -1,0 +1,222 @@
+/* 
+  Стили для главного компонента App
+  Современный дизайн с акцентом на удобство использования
+*/
+
+/* Сброс стилей и базовые настройки */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 100vh;
+}
+
+/* Основной контейнер приложения */
+.app {
+  /* Центрирование по всей высоте экрана */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+  /* Отступы */
+  padding: 20px;
+  
+  /* Анимация появления */
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Заголовок приложения */
+.app__title {
+  /* Размер и цвет */
+  font-size: 2.5rem;
+  color: #2c3e50;
+  
+  /* Отступы */
+  margin-bottom: 16px;
+  
+  /* Выравнивание */
+  text-align: center;
+  
+  /* Тень для текста */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  
+  /* Анимация */
+  animation: slideInFromTop 0.8s ease-out;
+}
+
+/* Описание приложения */
+.app__description {
+  /* Размер и цвет */
+  font-size: 1.2rem;
+  color: #5d6d7e;
+  
+  /* Отступы */
+  margin-bottom: 40px;
+  
+  /* Выравнивание */
+  text-align: center;
+  
+  /* Максимальная ширина для читаемости */
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+/* Контейнер для компонентов */
+.app__components {
+  /* Расположение компонентов */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  
+  /* Фон с небольшой прозрачностью */
+  background: rgba(255, 255, 255, 0.9);
+  
+  /* Отступы и скругление */
+  padding: 40px;
+  border-radius: 16px;
+  
+  /* Тень для объема */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  
+  /* Анимация */
+  animation: scaleIn 0.6s ease-out 0.2s both;
+}
+
+/* Блок статуса */
+.app__status {
+  /* Отступы */
+  margin-top: 30px;
+  
+  /* Фон */
+  background: rgba(255, 255, 255, 0.8);
+  
+  /* Отступы и скругление */
+  padding: 20px;
+  border-radius: 12px;
+  
+  /* Границы */
+  border-left: 4px solid #667eea;
+  
+  /* Анимация */
+  animation: slideInFromBottom 0.6s ease-out 0.4s both;
+}
+
+.app__status p {
+  /* Размер и цвет */
+  font-size: 1.1rem;
+  color: #34495e;
+  
+  /* Выравнивание */
+  text-align: center;
+  
+  /* Межстрочный интервал */
+  line-height: 1.5;
+}
+
+.app__status strong {
+  /* Цвет для выделения */
+  color: #2c3e50;
+}
+
+/* Анимации */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInFromTop {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Адаптивность для планшетов */
+@media (max-width: 1024px) {
+  .app__title {
+    font-size: 2.2rem;
+  }
+  
+  .app__components {
+    padding: 30px;
+  }
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+  .app {
+    padding: 15px;
+  }
+  
+  .app__title {
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+  }
+  
+  .app__description {
+    font-size: 1rem;
+    margin-bottom: 30px;
+  }
+  
+  .app__components {
+    padding: 25px;
+    width: 100%;
+    max-width: none;
+  }
+  
+  .app__status {
+    margin-top: 20px;
+    padding: 15px;
+  }
+  
+  .app__status p {
+    font-size: 1rem;
+  }
+}
+
+/* Дополнительные эффекты для интерактивности */
+.app__components:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
